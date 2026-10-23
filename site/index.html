@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZQM Software — The Platform Behind the Quests | ZQM Labs</title>
+<meta name="description" content="ZQM Labs builds its own game platform: an offline-first player, a JSON pack format, and the backend services that validate kits, track teams, and deliver downloads.">
+<style>
+  :root { --bg:#10131a; --panel:#181d29; --ink:#eef1f8; --dim:#a7b0c3; --accent:#ffb84d; --accent2:#7be0a3; --line:#2a3247; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif; line-height:1.55; }
+  header, main, footer { max-width:880px; margin:0 auto; padding:0 20px; }
+  header { padding:34px 20px 6px; }
+  .brand { font-size:.85rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); }
+  .brand a { color:var(--dim); text-decoration:none; }
+  h1 { font-size:2.4rem; line-height:1.15; margin:.35em 0 .3em; }
+  h2 { font-size:1.5rem; margin:1.6em 0 .5em; color:var(--accent); }
+  p.lede { font-size:1.15rem; color:var(--dim); }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:18px 0; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; }
+  .card h3 { margin:.1em 0 .3em; font-size:1.2rem; }
+  .card p { color:var(--dim); font-size:.98rem; }
+  .card a { color:var(--accent); }
+  code { background:#0b0e14; padding:1px 6px; border-radius:5px; font-size:.92em; color:var(--accent2); }
+  ul.ship li { margin:.4em 0; }
+  footer { padding:30px 20px 44px; color:var(--dim); font-size:.92rem; border-top:1px solid var(--line); margin-top:36px; }
+  footer a { color:var(--dim); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><a href="https://zqmlabs.com/">ZQM Labs</a> · Software</div>
+  <h1>The platform behind the quests</h1>
+  <p class="lede">ZQM Labs builds its own software end to end — the player in a
+  kid's hand, the pack format authors write in, and the services that validate
+  kits, track teams, and deliver the goods. No engines, no trackers, no
+  accounts for players.</p>
+</header>
+<main>
+  <h2>The pieces</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>The Player</h3>
+      <p>An offline-first web app in vanilla JavaScript with a vendored
+      Leaflet map. GPS arrival when you're really there, sign codes when
+      you're not, four scare levels per stop, a hint budget that keeps
+      score honestly — and it speaks seven languages.</p>
+    </div>
+    <div class="card">
+      <h3>The Pack Format</h3>
+      <p>Every quest is a JSON pack: stops with story, puzzle, hints, and
+      fallback text written per scare level, so the same course plays
+      Cozy for a five-year-old and Overdrive for the office bracket.
+      Story lives in the pack, never in the code.</p>
+    </div>
+    <div class="card">
+      <h3>The Backend</h3>
+      <p>A PocketBase service validates access codes, issues signed
+      content-pack URLs, and serves the public Communities API. A
+      separate tracker keeps team progress and leaderboards, split by
+      design so game data and play data never mix.</p>
+    </div>
+    <div class="card">
+      <h3>Fulfillment</h3>
+      <p>Checkout talks to a small delivery service that verifies the
+      payment, signs a personal download link, and emails it to the
+      host — the kits on the <a href="https://leaders.zqmlabs.com/">Leaders</a>
+      page arrive through it.</p>
+    </div>
+  </div>
+
+  <h2>Public code</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>quest-player</h3>
+      <p>Wisp's Lost Lanterns player — the offline-first PWA described above.</p>
+      <p><a href="https://github.com/ZQM-Labs/quest-player">github.com/ZQM-Labs/quest-player</a></p>
+    </div>
+    <div class="card">
+      <h3>quest-packs</h3>
+      <p>Ready-to-play scavenger hunt quest packs — the authored content
+      the player runs on.</p>
+      <p><a href="https://github.com/ZQM-Labs/quest-packs">github.com/ZQM-Labs/quest-packs</a></p>
+    </div>
+    <div class="card">
+      <h3>zqmlabs-site</h3>
+      <p>The public ZQM Labs website — Z's Quests &amp; Mischief — as a
+      Hugo static site.</p>
+      <p><a href="https://github.com/ZQM-Labs/zqmlabs-site">github.com/ZQM-Labs/zqmlabs-site</a></p>
+    </div>
+  </div>
+  <p>The whole estate is watched by an in-house estate-watch gate — dozens
+  of wiring checks over DNS, tunnels, access control, and live probes —
+  whose source lives with the platform code and runs daily.</p>
+
+  <h2>Recently shipped</h2>
+  <ul class="ship">
+    <li><strong>October 2026 — the rich demo:</strong> Wisp's Lost Lanterns relaunched on the full pack, with per-level art for every stop.</li>
+    <li><strong>Communities:</strong> the verified-host directory and its public API went live, with booking built into the player.</li>
+    <li><strong>Four hosting kits:</strong> Family Night, Community, Office Team, and Office Event, all fulfilled automatically.</li>
+    <li><strong>Z's Zoo:</strong> the official <a href="https://zoo.zqmlabs.com/" style="color:var(--accent)">bestiary</a> of the game's creatures, at every scare level.</li>
+  </ul>
+</main>
+<footer>
+  <p>ZQM Labs — Z's Quests &amp; Mischief ·
+  <a href="https://zqmlabs.com/">zqmlabs.com</a> ·
+  <a href="https://leaders.zqmlabs.com/">For hosts</a> ·
+  <a href="https://zoo.zqmlabs.com/">Z's Zoo</a></p>
+</footer>
+</body>
+</html>
