@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deploy a dist directory to the Cloudflare Pages project 'mischief-portal'
+"""Deploy a dist directory to the Cloudflare Pages project 'software'
 using the Pages direct-upload API. Account-level calls go through Muse's
 surrogate credential helper (same as bin/cf.py); asset calls use the
 short-lived upload JWT. Usage: python3 deploy.py <dist-dir> [branch]"""
