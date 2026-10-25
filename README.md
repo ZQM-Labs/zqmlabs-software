@@ -1,9 +1,6 @@
 # zqmlabs-software
 
-Source for **software.zqmlabs.com** — the public face of the ZQM Labs
-software platform: the offline-first player, the JSON pack format, the
-PocketBase backend and tracker, and the Stripe fulfillment service,
-plus links to the public code.
+Source for **software.zqmlabs.com**, the ZQM Labs software-platform overview for its offline-first quest player, JSON quest-pack format, PocketBase-backed services, event tracker, and Stripe fulfillment flow. This repository is a public information site and deploy script, not proof that every linked service or paid order path is production-ready; confirm each service's live status and end-to-end fulfillment evidence separately.
 
 ## Layout
 
