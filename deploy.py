@@ -76,8 +76,17 @@ def main():
         parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"_headers\"\r\n\r\n{headers_txt}\r\n".encode())
     if redirects_txt is not None:
         parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"_redirects\"\r\n\r\n{redirects_txt}\r\n".encode())
-    parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"commit_hash\"\r\n\r\n76b790fe48884e9c027da955174a9fc4f4ffdfd3\r\n".encode())
-    parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"commit_message\"\r\n\r\nZ's Zoo bestiary v1 — approved text, first deployment\r\n".encode())
+    import subprocess as _sp
+    try:
+        _hash = _sp.check_output(["git", "rev-parse", "HEAD"], text=True, cwd=os.path.dirname(os.path.abspath(__file__))).strip()
+    except Exception:
+        _hash = "unknown"
+    parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"commit_hash\"\r\n\r\n{_hash}\r\n".encode())
+    try:
+        _msg = _sp.check_output(["git", "log", "-1", "--pretty=%s"], text=True, cwd=os.path.dirname(os.path.abspath(__file__))).strip()
+    except Exception:
+        _msg = "deployment"
+    parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"commit_message\"\r\n\r\n{_msg}\r\n".encode())
     parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"commit_dirty\"\r\n\r\nfalse\r\n".encode())
     parts.append(f"--{boundary}--\r\n".encode())
     body = b"".join(parts)
