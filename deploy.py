@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deploy a dist directory to the Cloudflare Pages project 'software'
+"""Deploy a dist directory to the Cloudflare Pages project 'software-1bl'
 using the Pages direct-upload API. Account-level calls go through Muse's
 surrogate credential helper (same as bin/cf.py); asset calls use the
 short-lived upload JWT. Usage: python3 deploy.py <dist-dir> [branch]"""
@@ -10,7 +10,7 @@ import blake3
 
 ACCT = "95f9d4d4b30ddd165f0ce16e9cf15f82"
 import os
-PROJECT = os.environ.get("PAGES_PROJECT", "software")
+PROJECT = os.environ.get("PAGES_PROJECT", "software-1bl")
 API = "https://api.cloudflare.com/client/v4"
 
 def surrogate_req(method, url, data=None, ctype="application/json"):
